@@ -1,0 +1,59 @@
+﻿@page
+@model WebApplication1.Pages.TambahClientsModel
+@{
+}
+
+<br>
+
+<h2>Tambah Clients</h2>
+@if(Model.pesanError.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.pesanError</strong>
+        <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
+    </div>
+}
+
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nama</label>
+        <div class="col-sm-6">
+            <input type="text" id="nama" name="nama" class="form-control" value="@Model.clientsinfo.nama" placeholder="Isi Nama Client"></input>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="email" id="email" name="email" class="form-control" value="@Model.clientsinfo.email" placeholder="Email anda"></input>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Telepon</label>
+        <div class="col-sm-6">
+            <input type="text" id="telepon" name="telepon" class="form-control" value="@Model.clientsinfo.telepon" placeholder="Nomor Telepon Anda"></input>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Alamat</label>
+        <div class="col-sm-6">
+            <input type="text" id="alamat" name="alamat" class="form-control" value="@Model.clientsinfo.alamat" placeholder="Alamat Anda"></input>
+        </div>
+    </div>
+
+    @if (Model.pesanSukses.Length > 0)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.pesanSukses</strong>
+            <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-success btn-sm">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a type="submit" class="btn btn-warning btn-sm" href="/clients" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

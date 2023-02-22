@@ -1,0 +1,38 @@
+﻿@page
+@model WebApplication1.Pages.ClientsModel
+@{
+}
+
+<br>
+<h2>List Clients</h2>
+<a class="btn btn-primary btn-sm" href="/TambahClients"> Tambah Client</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Telepon</th>
+            <th>Alamat</th>
+            <th>Created At</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model.listClients)
+        {
+            <tr>
+               <td>@i.id</td>
+               <td>@i.nama</td>
+               <td>@i.email</td>
+               <td>@i.telepon</td>
+               <td>@i.alamat</td>
+               <td>@i.created_at</td>
+               <td>
+                  <a class="btn btn-warning btn-sm" href="/UbahClients?id=@i.id">Ubah</a>
+                      <a class="btn btn-danger btn-sm" href="/HapusClients?id=@i.id">Hapus</a>
+               </td>
+            </tr>
+        }
+    </tbody>
+</table>
